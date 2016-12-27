@@ -19,7 +19,7 @@ public class SomethingRandom extends ListenerAdapter {
     public static void main(String [] args) {
         boolean running = true;
         try {
-            jda = new JDABuilder(AccountType.BOT).setToken("MjYzMTM2NjcyODQ4MjgxNjAy.C0Norg.Ad6tXXUvu0khcnSUmWgeOIOc4A8").addListener(new SomethingRandom()).buildBlocking();
+            jda = new JDABuilder(AccountType.BOT).setToken("INSERT_BOT_TOKEN").addListener(new SomethingRandom()).buildBlocking();
         } catch (Exception e) {
             e.printStackTrace();
         }
