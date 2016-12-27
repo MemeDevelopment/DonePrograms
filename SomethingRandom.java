@@ -40,6 +40,12 @@ public class SomethingRandom extends ListenerAdapter {
                     channel.sendMessage("Help:").queue();
                     channel.sendMessage("~help - List of commands").queue();
                     channel.sendMessage("~test - Runs a test").queue();
+                    channel.sendMessage("~inviteme - Sends invite link").queue();
+
+                }
+                else if (msg.equalsIgnoreCase("~inviteme")){
+                    channel.sendMessage("Click the link below to add me to your server!").queue();
+                    channel.sendMessage("https://discordapp.com/oauth2/authorize?&client_id=263136672848281602&scope=bot").queue();
                 }
             }
         }
