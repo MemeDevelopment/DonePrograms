@@ -1,7 +1,7 @@
 /**
  * Created by jonathanmarcantonio on 2016-12-26.
  */
-
+//Requires you to download JDA http://home.dv8tion.net:8080/job/JDA/108/
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
