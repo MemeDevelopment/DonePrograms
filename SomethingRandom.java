@@ -37,7 +37,7 @@ public class SomethingRandom extends ListenerAdapter {
             JDA jda = event.getJDA();
             Message message = event.getMessage(); //Gets the message
             MessageChannel channel = event.getChannel(); //Gets the channel name
-            User author = event.getAuthor();  //To get who wrote a message
+            User author = event.getAuthor();  //Gets who wrote a message
             boolean bot = author.isBot(); //Boolean to declare as bot
             String msg = message.getContent(); //Puts the message into a string to be used
             if (event.isFromType(ChannelType.TEXT)) {
