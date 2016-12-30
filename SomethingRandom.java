@@ -30,6 +30,7 @@ public class SomethingRandom extends ListenerAdapter {
             "Better not to tell you now", "Cannot predict now", "Concentrate and ask again", "No response", "This is not the right time to tell you",
             "I can't help you", "I am uncertain", "Not possible to give you an answer", "Don't count on it", "My reply is no", "My sources say no", "Outlook not so good",
             "Very doubtful","Very unlikely","Absolutely not"}; //Possible responses for 8ball
+            
             String gitLink = ""; //Change to whatever link the repo is at
             String botId = ""; //Change to whatever bot id is
             JDA jda = event.getJDA();
