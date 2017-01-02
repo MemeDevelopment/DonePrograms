@@ -3,31 +3,12 @@
  */
 //Requires you to download JDA http://home.dv8tion.net:8080/job/JDA/108/
 
-import net.dv8tion.jda.core.AccountType;
-import net.dv8tion.jda.core.JDA;
-import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.entities.*;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
 
-
-
-public class SomethingRandom extends ListenerAdapter {
-
-    private static JDA jda;
-
-
-
-    public static void main(String [] args) {
-        try {
-            jda = new JDABuilder(AccountType.BOT).setToken("INSERT_BOT_TOKEN").addListener(new SomethingRandom()).buildBlocking();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-       
-
+public class MessageReceived extends ListenerAdapter {
         @Override
         public void onMessageReceived(MessageReceivedEvent event) {
             int randNum = 0;
@@ -38,7 +19,6 @@ public class SomethingRandom extends ListenerAdapter {
                         "Outlook not so good", "Very doubtful", "Very unlikely", "Absolutely not"};
             String gitLink = ""; //Change to whatever link the repo is at
             String botId = "INSERT_BOT_ID"; //Change to whatever bot id is
-            JDA jda = event.getJDA();
             User author = event.getAuthor();
             Guild guild = event.getGuild();
             Member member = guild.getMember(author);
@@ -93,15 +73,15 @@ public class SomethingRandom extends ListenerAdapter {
                 if(msg[0].equalsIgnoreCase("~stop")) {
                     Thread thread = new Thread() {
                         public void run() {
-                            if (!Stuff.stop)
+                            if (!StopVar.stop)
 
                             {
-                                Stuff.stop = true;
+                                StopVar.stop = true;
                                 channel.sendMessage("Stopping beer counting!").queue();
-                            } else if (Stuff.stop)
+                            } else if (StopVar.stop)
 
                             {
-                                Stuff.stop = false;
+                                StopVar.stop = false;
                                 channel.sendMessage("Beer counting now allowed again!").queue();
                             }
                         }
@@ -115,18 +95,24 @@ public class SomethingRandom extends ListenerAdapter {
                                 msg[0] = msg[0].replaceAll("~bottle ", "");
                                 int x = Integer.parseInt(msg[0]);
                                 for (int i = x; i > 0; i--) {
-                                    if (!Stuff.stop) {
+                                    if (!StopVar.stop) {
                                         try {
                                             channel.sendMessage(i + " Bottles of beer on the wall").queue();
                                             Thread.sleep(1500);
-                                            channel.sendMessage(i + " Bottles of beer").queue();
-                                            Thread.sleep(1500);
-                                            channel.sendMessage("Take 1 down, pass it around").queue();
-                                            Thread.sleep(1500);
-                                            i--;
-                                            channel.sendMessage(i + " Bottles of beer on the wall").queue();
-                                            Thread.sleep(1500);
-                                            i++;
+                                            if (!StopVar.stop) {
+                                                channel.sendMessage(i + " Bottles of beer").queue();
+                                                Thread.sleep(1500);
+                                            }
+                                            if (!StopVar.stop) {
+                                                channel.sendMessage("Take 1 down, pass it around").queue();
+                                                Thread.sleep(1500);
+                                                i--;
+                                            }
+                                            if (!StopVar.stop) {
+                                                channel.sendMessage(i + " Bottles of beer on the wall").queue();
+                                                Thread.sleep(1500);
+                                                i++;
+                                            }
                                         } catch (Exception e) {
                                             System.out.println(e);
                                         }
