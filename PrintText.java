@@ -3,7 +3,7 @@ import java.util.Scanner;
 class PrintText {
   public static void main(String [] args){ 
     Scanner in = new Scanner(System.in);
-    System.out.println("Enter a word");
+    System.out.println("Enter a sentence");
     String question = in.nextLine();
     char[] text = question.toCharArray();
     for(int i = 0; i < text.length; i++){
