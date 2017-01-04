@@ -10,16 +10,16 @@ import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
 public class MessageReceived extends ListenerAdapter {
         boolean stop = false;
+        int randNum = 0;
+        String[] Responses = {"It is certain", "It is decidedly so", "Without a doubt", "Yes, definitely", "You may rely on it",
+                    "As i see it, yes", "Most likely", "Outlook good", "Yes", "Signs point to yes", "Reply hazy. Try again", "Ask again later",
+                    "Better not to tell you now", "Cannot predict now", "Concentrate and ask again", "No response", "This is not the right time to tell you",
+                    "I can't help you", "I am uncertain", "Not possible to give you an answer", "Don't count on it", "My reply is no", "My sources say no",
+                    "Outlook not so good", "Very doubtful", "Very unlikely", "Absolutely not"};
+        String gitLink = ""; //Change to whatever link the repo is at
+        String botId = "INSERT_BOT_ID"; //Change to whatever bot id is
         @Override
         public void onMessageReceived(MessageReceivedEvent event) {
-            int randNum = 0;
-            String[] Responses = {"It is certain", "It is decidedly so", "Without a doubt", "Yes, definitely", "You may rely on it",
-                        "As i see it, yes", "Most likely", "Outlook good", "Yes", "Signs point to yes", "Reply hazy. Try again", "Ask again later",
-                        "Better not to tell you now", "Cannot predict now", "Concentrate and ask again", "No response", "This is not the right time to tell you",
-                        "I can't help you", "I am uncertain", "Not possible to give you an answer", "Don't count on it", "My reply is no", "My sources say no",
-                        "Outlook not so good", "Very doubtful", "Very unlikely", "Absolutely not"};
-            String gitLink = ""; //Change to whatever link the repo is at
-            String botId = "INSERT_BOT_ID"; //Change to whatever bot id is
             User author = event.getAuthor();
             Guild guild = event.getGuild();
             Member member = guild.getMember(author);
