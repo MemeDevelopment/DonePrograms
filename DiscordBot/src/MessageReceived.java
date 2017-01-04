@@ -74,14 +74,10 @@ public class MessageReceived extends ListenerAdapter {
                 if(msg[0].equalsIgnoreCase("~stop")) {
                     Thread thread = new Thread() {
                         public void run() {
-                            if (!stop)
-
-                            {
+                            if (!stop){
                                 stop = true;
                                 channel.sendMessage("Stopping beer counting!").queue();
-                            } else if (stop)
-
-                            {
+                            } else if (stop){
                                 stop = false;
                                 channel.sendMessage("Beer counting now allowed again!").queue();
                             }
