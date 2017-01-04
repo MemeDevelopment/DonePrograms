@@ -9,6 +9,7 @@ import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
 
 public class MessageReceived extends ListenerAdapter {
+        boolean stop = false;
         @Override
         public void onMessageReceived(MessageReceivedEvent event) {
             int randNum = 0;
@@ -73,15 +74,15 @@ public class MessageReceived extends ListenerAdapter {
                 if(msg[0].equalsIgnoreCase("~stop")) {
                     Thread thread = new Thread() {
                         public void run() {
-                            if (!StopVar.stop)
+                            if (!stop)
 
                             {
-                                StopVar.stop = true;
+                                stop = true;
                                 channel.sendMessage("Stopping beer counting!").queue();
-                            } else if (StopVar.stop)
+                            } else if (stop)
 
                             {
-                                StopVar.stop = false;
+                                stop = false;
                                 channel.sendMessage("Beer counting now allowed again!").queue();
                             }
                         }
@@ -95,20 +96,20 @@ public class MessageReceived extends ListenerAdapter {
                                 msg[0] = msg[0].replaceAll("~bottle ", "");
                                 int x = Integer.parseInt(msg[0]);
                                 for (int i = x; i > 0; i--) {
-                                    if (!StopVar.stop) {
+                                    if (!stop) {
                                         try {
                                             channel.sendMessage(i + " Bottles of beer on the wall").queue();
                                             Thread.sleep(1500);
-                                            if (!StopVar.stop) {
+                                            if (!stop) {
                                                 channel.sendMessage(i + " Bottles of beer").queue();
                                                 Thread.sleep(1500);
                                             }
-                                            if (!StopVar.stop) {
+                                            if (!stop) {
                                                 channel.sendMessage("Take 1 down, pass it around").queue();
                                                 Thread.sleep(1500);
                                                 i--;
                                             }
-                                            if (!StopVar.stop) {
+                                            if (!stop) {
                                                 channel.sendMessage(i + " Bottles of beer on the wall").queue();
                                                 Thread.sleep(1500);
                                                 i++;
