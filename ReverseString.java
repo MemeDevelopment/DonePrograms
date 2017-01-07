@@ -1,6 +1,6 @@
 /**
  * Created by jonathanmarcantonio on 2017-01-06.
- */
+ */ 
 import java.util.Scanner;
 
 public class ReverseString {
