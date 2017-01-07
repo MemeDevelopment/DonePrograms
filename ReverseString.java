@@ -10,10 +10,8 @@ public class ReverseString {
         String sentence = in.nextLine();
         char[] reverse = sentence.toCharArray();
         String temp = "";
-        for(int i = 0; i < reverse.length; i++) {
-             i++;//Need this so error doesn't occur because of a -1 in array.
-             temp = temp + reverse[reverse.length - i];
-             i--;
+        for(int i = reverse.length-1; i >= 0; i--) {//Sets i to length of char - 1, so last letter is written first.
+             temp = temp + reverse[i];
         }
         System.out.println("Reversed string is: " + temp);
     }
