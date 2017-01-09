@@ -21,7 +21,7 @@ public class TemperatureConverter {
                 double temperature = in.nextDouble();
                 TemperatureConverter.FahrenheitToCelsius(temperature);
             }
-            else if (question.equalsIgnoreCase("EXIT")){
+            else if (question.equalsIgnoreCase("EXIT") || question.equalsIgnoreCase("E")){
                 System.out.println("Goodbye :(");
                 running = false;
             }

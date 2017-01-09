@@ -20,7 +20,7 @@ public class GallonConverter {
                 double amount = in.nextDouble();
                 GallonConverter.convertGallons(amount);
             }
-            else if (question.equalsIgnoreCase("EXIT")){
+            else if (question.equalsIgnoreCase("EXIT") || question.equalsIgnoreCase("E")){
                 running = false;
                 System.out.println("Goodbye ;(");
             }
