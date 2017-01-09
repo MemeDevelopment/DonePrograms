@@ -10,12 +10,12 @@ public class GallonConverter {
         while(running) {
             System.out.println("Convert Gallons to litres? (N/Y/EXIT)");
             String question = in.next();
-            if (question.equalsIgnoreCase("N")) {
+            if (question.equalsIgnoreCase("N") || question.equalsIgnoreCase("NO")) {
                 System.out.println("Converting Litres to gallons then!");
                 System.out.println("Insert amount of Litres to be converted!");
                 double amount = in.nextDouble();
                 GallonConverter.convertLitres(amount);
-            } else if (question.equalsIgnoreCase("Y")) {
+            } else if (question.equalsIgnoreCase("Y") || question.equalsIgnoreCase("YES")) {
                 System.out.println("Insert amount of Gallons to be converted!");
                 double amount = in.nextDouble();
                 GallonConverter.convertGallons(amount);
