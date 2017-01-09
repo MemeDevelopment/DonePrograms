@@ -10,13 +10,13 @@ public class TemperatureConverter {
         while(running) {
             System.out.println("Convert fahrenheit to celsius? (N/Y/EXIT)");
             String question = in.next();
-            if (question.equalsIgnoreCase("N")){
+            if (question.equalsIgnoreCase("N") || question.equalsIgnoreCase("NO")){
                 System.out.println("Converting celsius to fahrenheit then!");
                 System.out.println("Insert celsius temperature to be converted!");
                 double temperature = in.nextDouble();
                 TemperatureConverter.CelsiusToFahrenheit(temperature);
             }
-            else if (question.equalsIgnoreCase("Y")){
+            else if (question.equalsIgnoreCase("Y") || question.equalsIgnoreCase("YES")){
                 System.out.println("Insert fahrenheit temperature to be converted");
                 double temperature = in.nextDouble();
                 TemperatureConverter.FahrenheitToCelsius(temperature);
