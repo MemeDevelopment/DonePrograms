@@ -13,7 +13,7 @@ public class CountVowels {
         Scanner in = new Scanner(System.in);
         while (running) {
             System.out.println("Enter a string to count the vowels bby");
-            String sentence = in.nextLine().toLowerCase();//So i only have to check for case of the letter
+            String sentence = in.nextLine().toLowerCase();//So i only have to check for one case of the letter
             CountVowel(sentence);
         }
     }
