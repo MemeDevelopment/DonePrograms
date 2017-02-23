@@ -31,14 +31,13 @@ public class MessageReceived extends ListenerAdapter {
             if (event.isFromType(ChannelType.TEXT)) {
             if(!bot){
                 String temp = author.toString(); //Puts author into a string to compare
+                randNum = (int) (Math.random() * 2 + 1);
                 if(temp.equals("U:domz0101(244913980970237952)")){
-                    randNum = (int) (Math.random() * 2 + 1);
                     if(randNum == 2) {
                         channel.sendMessage("Kys dom").queue();
                     }
                 }
                 else if(temp.equals("U:sunboysunshine(274008792436572160)")){
-                    randNum = (int) (Math.random() * 2 + 1);
                     if(randNum == 2) {
                         channel.sendMessage("Kys sunny").queue();
                     }
