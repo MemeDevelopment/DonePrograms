@@ -33,7 +33,7 @@ public class MessageReceived extends ListenerAdapter {
     ArrayList playerEffectiveName = new ArrayList();
     ArrayList clearMessages = new ArrayList();
     String gitLink = "https://github.com/MemeDevelopment/DonePrograms/tree/master/DiscordBot/src"; //Change to whatever link the repo is at
-    String botId = ""; //Change to whatever bot id is
+    String botId = "263136672848281602"; //Change to whatever bot id is
     Random rand = new Random();
     public static volatile boolean attack = false;
     public static volatile boolean waiting = true;
@@ -262,10 +262,13 @@ public class MessageReceived extends ListenerAdapter {
                                 if (msg[0].startsWith("~clear")) {
                                     msg[0] = msg[0].replaceAll("~clear ", "");
                                     int x = Integer.parseInt(msg[0]);
-                                    for (int i = 0; i <= x; i++) {
+                                    int newestEntry = clearMessages.size() - 1;
+                                    channel.deleteMessageById(clearMessages.get(newestEntry).toString()).queue();
+                                    clearMessages.remove(newestEntry);
+                                    for (int i = 0; i < x; i++) {
                                         channel.deleteMessageById(clearMessages.get(i).toString()).queue();
                                     }
-                                    for (int i = 0; i <= x; i++) {
+                                    for (int i = x-1; i < x && i > -1; i--) {
                                         clearMessages.remove(i);
                                     }
                                 }
