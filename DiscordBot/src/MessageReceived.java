@@ -265,13 +265,20 @@ public class MessageReceived extends ListenerAdapter {
                                     int newestEntry = clearMessages.size() - 1;
                                     channel.deleteMessageById(clearMessages.get(newestEntry).toString()).queue();
                                     clearMessages.remove(newestEntry);
-                                    for (int i = 0; i < x; i++) {
-                                        channel.deleteMessageById(clearMessages.get(i).toString()).queue();
-                                    }
-                                    for (int i = x-1; i < x && i > -1; i--) {
-                                        clearMessages.remove(i);
-                                    }
+                                        for (int i = 1; i <= x && i >= 0; i++) { //checks if i is less than input value, but greater than 0 to keep adding up to input value
+                                            try {
+                                                channel.deleteMessageById(clearMessages.get(newestEntry - i).toString()).queue(); //Deletes the newest messages first, instead of the oldest in the array
+                                            }catch(Exception e){
+                                                e.printStackTrace();
+                                            }
+                                        }
+                                        for (int i = x - 1; i < x && i > -1; i--) {
+                                            clearMessages.remove(i);
+                                        }
+
                                 }
+
+
                             }
                         }
                         if (event.isFromType(ChannelType.TEXT)){
