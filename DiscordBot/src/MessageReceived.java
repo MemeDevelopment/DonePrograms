@@ -272,8 +272,8 @@ public class MessageReceived extends ListenerAdapter {
                                                 e.printStackTrace();
                                             }
                                         }
-                                        for (int i = x - 1; i < x && i > -1; i--) {
-                                            clearMessages.remove(i);
+                                        for (int i = 1; i <= x && i >= 0; i++) {
+                                            clearMessages.remove(newestEntry-i);
                                         }
 
                                 }
